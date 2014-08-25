@@ -1,0 +1,570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4588B49E-50E7-4F95-8ECF-3E15D7AD74B3}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyLocalPharmacy</RootNamespace>
+    <AssemblyName>MyLocalPharmacy</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>MyLocalPharmacy_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>MyLocalPharmacy.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\RelayCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Contract\IDataStorage.cs" />
+    <Compile Include="Entities\ChangePinRequest.cs" />
+    <Compile Include="Entities\ChangePinResponse.cs" />
+    <Compile Include="Entities\GeoCoordinates.cs" />
+    <Compile Include="Entities\GeoCoordinatesCollection.cs" />
+    <Compile Include="Entities\GetAllOrdersRequest.cs" />
+    <Compile Include="Entities\GetAllOrdersResponse.cs" />
+    <Compile Include="Entities\GetOrderStatusRequest.cs" />
+    <Compile Include="Entities\GetOrderStatusResponse.cs" />
+    <Compile Include="Entities\GetPharmacyInformationRequest.cs" />
+    <Compile Include="Entities\GetPharmacyInformationResponse.cs" />
+    <Compile Include="Entities\LoginParameters.cs" />
+    <Compile Include="Entities\LoginResponse.cs" />
+    <Compile Include="Entities\RemoveOrderRequest.cs" />
+    <Compile Include="Entities\RemoveOrderResponse.cs" />
+    <Compile Include="Entities\ResendConfirmationCodesRequest.cs" />
+    <Compile Include="Entities\ResendConfirmationCodesResponse.cs" />
+    <Compile Include="Entities\ResetPinRequest.cs" />
+    <Compile Include="Entities\ResetPinResponse.cs" />
+    <Compile Include="Entities\SendNominationRequest.cs" />
+    <Compile Include="Entities\SendNominationResponse.cs" />
+    <Compile Include="Entities\SendOrderRequest.cs" />
+    <Compile Include="Entities\SendOrderResponse.cs" />
+    <Compile Include="Entities\SendResetPinCodeRequest.cs" />
+    <Compile Include="Entities\SendResetPinCodeResponse.cs" />
+    <Compile Include="Entities\SendUserDetailsRequest.cs" />
+    <Compile Include="Entities\SendUserDetailsResponse.cs" />
+    <Compile Include="Entities\SetOrderStatusRequest.cs" />
+    <Compile Include="Entities\SetOrderStatusResponse.cs" />
+    <Compile Include="Entities\UpdatePushNotificationsIdRequest.cs" />
+    <Compile Include="Entities\UpdatePushNotificationsIdResponse.cs" />
+    <Compile Include="Model\ResetPinModel.cs" />
+    <Compile Include="Model\SignUpModel.cs" />
+    <Compile Include="Model\VerificationModel.cs" />
+    <Compile Include="Model\VerifyBySmsModel.cs" />
+    <Compile Include="Model\YourDetailswithTCModel.cs" />
+    <Compile Include="Resources\LocalizedStrings.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PillsDetails.cs" />
+    <Compile Include="Model\PillsDetailsCol.cs" />
+    <Compile Include="Model\YourDetailsLoginModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\JsonHelper.cs" />
+    <Compile Include="Utils\LinqToVisualTree.cs" />
+    <Compile Include="Utils\MultiResImageChooserUri.cs" />
+    <Compile Include="Utils\PageURL.cs" />
+    <Compile Include="Utils\PersistentDataStorage.cs" />
+    <Compile Include="Utils\ResolutionHelper.cs" />
+    <Compile Include="Utils\RxConstants.cs" />
+    <Compile Include="Utils\Settings.cs" />
+    <Compile Include="Utils\TransientDataStorage.cs" />
+    <Compile Include="Utils\Utilities.cs" />
+    <Compile Include="Utils\WebBrowserHelper.cs" />
+    <Compile Include="Utils\WebServiceHelper.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\ConfirmPinViewModel.cs" />
+    <Compile Include="ViewModel\ConfirmResetPinViewModel.cs" />
+    <Compile Include="ViewModel\EnterPinViewModel.cs" />
+    <Compile Include="ViewModel\HomePanoramaViewModel.cs" />
+    <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\MapPharmacyViewModel.cs" />
+    <Compile Include="ViewModel\PharmacyDetailsViewModel.cs" />
+    <Compile Include="ViewModel\ResetPinLoginViewModel.cs" />
+    <Compile Include="ViewModel\ResetPinViewModel.cs" />
+    <Compile Include="ViewModel\SelectSurgeryViewModel.cs" />
+    <Compile Include="ViewModel\SetPinViewModel.cs" />
+    <Compile Include="ViewModel\SettingsChangePinViewModel.cs" />
+    <Compile Include="ViewModel\SettingsConfirmChangePinViewModel.cs" />
+    <Compile Include="ViewModel\SettingsViewModel.cs" />
+    <Compile Include="ViewModel\SignUpViewModel.cs" />
+    <Compile Include="ViewModel\VerificationViewModel.cs" />
+    <Compile Include="ViewModel\VerifyBySmsViewModel.cs" />
+    <Compile Include="ViewModel\YourDetailsLoginViewModel.cs" />
+    <Compile Include="ViewModel\YourDetailsUpdateViewModel.cs" />
+    <Compile Include="ViewModel\YourDetailswithTCViewModel.cs" />
+    <Compile Include="View\ConditionLeaflets.xaml.cs">
+      <DependentUpon>ConditionLeaflets.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConfirmPin.xaml.cs">
+      <DependentUpon>ConfirmPin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConfirmResetPin.xaml.cs">
+      <DependentUpon>ConfirmResetPin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnterPin.xaml.cs">
+      <DependentUpon>EnterPin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FindService.xaml.cs">
+      <DependentUpon>FindService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePanorama.xaml.cs">
+      <DependentUpon>HomePanorama.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MapDenthist.xaml.cs">
+      <DependentUpon>MapDenthist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MapPharmacyDetails.xaml.cs">
+      <DependentUpon>MapPharmacyDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PharmacyDetails.xaml.cs">
+      <DependentUpon>PharmacyDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PharmacySupportPage.xaml.cs">
+      <DependentUpon>PharmacySupportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PillReminder.xaml.cs">
+      <DependentUpon>PillReminder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ResetPin.xaml.cs">
+      <DependentUpon>ResetPin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ResetPinLogin.xaml.cs">
+      <DependentUpon>ResetPinLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SelectSurgery.xaml.cs">
+      <DependentUpon>SelectSurgery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SetPin.xaml.cs">
+      <DependentUpon>SetPin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsChangePin.xaml.cs">
+      <DependentUpon>SettingsChangePin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsConfirmChangePin.xaml.cs">
+      <DependentUpon>SettingsConfirmChangePin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SignUp.xaml.cs">
+      <DependentUpon>SignUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SplashScreenControl.xaml.cs">
+      <DependentUpon>SplashScreenControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TermsAndConditions.xaml.cs">
+      <DependentUpon>TermsAndConditions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Verification.xaml.cs">
+      <DependentUpon>Verification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VerifyBySms.xaml.cs">
+      <DependentUpon>VerifyBySms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\YourDetailsUpdate.xaml.cs">
+      <DependentUpon>YourDetailsUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\YourDetailsLogin.xaml.cs">
+      <DependentUpon>YourDetailsLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\YourDetailswithTC.xaml.cs">
+      <DependentUpon>YourDetailswithTC.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ConditionLeaflets.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ConfirmPin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ConfirmResetPin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnterPin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FindService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePanorama.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MapDenthist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MapPharmacyDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Menu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PharmacyDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PharmacySupportPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PillReminder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ResetPin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ResetPinLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SelectSurgery.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SetPin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SettingsChangePin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SettingsConfirmChangePin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SignUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SplashScreenControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TermsAndConditions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Verification.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\VerifyBySms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\YourDetailsUpdate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\YourDetailsLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\YourDetailswithTC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\arrow_right.png" />
+    <Content Include="Assets\Icons\add.png" />
+    <Content Include="Assets\Icons\back.png" />
+    <Content Include="Assets\Icons\basecircle.png" />
+    <Content Include="Assets\Icons\cancel.png" />
+    <Content Include="Assets\Icons\check.png" />
+    <Content Include="Assets\Icons\close.png" />
+    <Content Include="Assets\Icons\delete.png" />
+    <Content Include="Assets\Icons\details.png" />
+    <Content Include="Assets\Icons\details48.png" />
+    <Content Include="Assets\Icons\download.png" />
+    <Content Include="Assets\Icons\edit.png" />
+    <Content Include="Assets\Icons\favs.addto.png" />
+    <Content Include="Assets\Icons\favs.png" />
+    <Content Include="Assets\Icons\feature.alarm.png" />
+    <Content Include="Assets\Icons\feature.calendar.png" />
+    <Content Include="Assets\Icons\feature.camera.png" />
+    <Content Include="Assets\Icons\feature.email.png" />
+    <Content Include="Assets\Icons\feature.phone.png" />
+    <Content Include="Assets\Icons\feature.search.png" />
+    <Content Include="Assets\Icons\feature.settings.png" />
+    <Content Include="Assets\Icons\feature.video.png" />
+    <Content Include="Assets\Icons\folder.png" />
+    <Content Include="Assets\Icons\info.png" />
+    <Content Include="Assets\Icons\info48.png" />
+    <Content Include="Assets\Icons\like.png" />
+    <Content Include="Assets\Icons\location.png" />
+    <Content Include="Assets\Icons\location48.png" />
+    <Content Include="Assets\Icons\microphone.png" />
+    <Content Include="Assets\Icons\minus.png" />
+    <Content Include="Assets\Icons\new.png" />
+    <Content Include="Assets\Icons\next.png" />
+    <Content Include="Assets\Icons\overflowdots.png" />
+    <Content Include="Assets\Icons\pin.png" />
+    <Content Include="Assets\Icons\pin48.png" />
+    <Content Include="Assets\Icons\questionmark.png" />
+    <Content Include="Assets\Icons\refresh.png" />
+    <Content Include="Assets\Icons\save.png" />
+    <Content Include="Assets\Icons\share.png" />
+    <Content Include="Assets\Icons\stop.png" />
+    <Content Include="Assets\Icons\support.png" />
+    <Content Include="Assets\Icons\support48.png" />
+    <Content Include="Assets\Icons\sync.png" />
+    <Content Include="Assets\Icons\transport.ff.png" />
+    <Content Include="Assets\Icons\transport.pause.png" />
+    <Content Include="Assets\Icons\transport.play.png" />
+    <Content Include="Assets\Icons\transport.rew.png" />
+    <Content Include="Assets\Icons\upload.png" />
+    <Content Include="Assets\Icons\windows-back-black-1.png" />
+    <Content Include="Assets\Icons\windows-back-black-2.png" />
+    <Content Include="Assets\Icons\windows-back-grey-1.png" />
+    <Content Include="Assets\Icons\windows-back-grey-2.png" />
+    <Content Include="Assets\Icons\windows-back-white-1.png" />
+    <Content Include="Assets\Icons\windows-back-white-2.png" />
+    <Content Include="Assets\ic_action_delete_char.png" />
+    <Content Include="Assets\Images\720p\Background_720p.png" />
+    <Content Include="Assets\Images\720p\Background_720pp.png" />
+    <Content Include="Assets\Images\720p\HelpInfo_720p.png" />
+    <Content Include="Assets\Images\720p\SearchBar_720p.png" />
+    <Content Include="Assets\Images\720p\Search_720p.png" />
+    <Content Include="Assets\Images\bg_panorama.png" />
+    <Content Include="Assets\Images\icon_splash.png" />
+    <Content Include="Assets\Images\WVGA\Background_WVGA.png" />
+    <Content Include="Assets\Images\WVGA\Background_WVGAa.png" />
+    <Content Include="Assets\Images\WVGA\HelpInfo_WVGA.png" />
+    <Content Include="Assets\Images\WVGA\SearchBar_WVGA.png" />
+    <Content Include="Assets\Images\WVGA\Search_WVGA.png" />
+    <Content Include="Assets\Images\WXGA\Background_WXGA.png" />
+    <Content Include="Assets\Images\WXGA\Background_WXGAa.png" />
+    <Content Include="Assets\Images\WXGA\HelpInfo_WXGA.png" />
+    <Content Include="Assets\Images\WXGA\SearchBar_WXGA.png" />
+    <Content Include="Assets\Images\WXGA\Search_WXGA.png" />
+    <Content Include="Assets\right.jpg" />
+    <Content Include="Assets\right1.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\bg_panorama.png" />
+    <Content Include="Images\Icons\add.png" />
+    <Content Include="Images\Icons\back.png" />
+    <Content Include="Images\Icons\basecircle.png" />
+    <Content Include="Images\Icons\cancel.png" />
+    <Content Include="Images\Icons\check.png" />
+    <Content Include="Images\Icons\close.png" />
+    <Content Include="Images\Icons\delete.png" />
+    <Content Include="Images\Icons\download.png" />
+    <Content Include="Images\Icons\edit.png" />
+    <Content Include="Images\Icons\favs.addto.png" />
+    <Content Include="Images\Icons\favs.png" />
+    <Content Include="Images\Icons\feature.alarm.png" />
+    <Content Include="Images\Icons\feature.calendar.png" />
+    <Content Include="Images\Icons\feature.camera.png" />
+    <Content Include="Images\Icons\feature.email.png" />
+    <Content Include="Images\Icons\feature.phone.png" />
+    <Content Include="Images\Icons\feature.search.png" />
+    <Content Include="Images\Icons\feature.settings.png" />
+    <Content Include="Images\Icons\feature.video.png" />
+    <Content Include="Images\Icons\folder.png" />
+    <Content Include="Images\Icons\like.png" />
+    <Content Include="Images\Icons\microphone.png" />
+    <Content Include="Images\Icons\minus.png" />
+    <Content Include="Images\Icons\new.png" />
+    <Content Include="Images\Icons\next.png" />
+    <Content Include="Images\Icons\overflowdots.png" />
+    <Content Include="Images\Icons\questionmark.png" />
+    <Content Include="Images\Icons\refresh.png" />
+    <Content Include="Images\Icons\save.png" />
+    <Content Include="Images\Icons\share.png" />
+    <Content Include="Images\Icons\stop.png" />
+    <Content Include="Images\Icons\sync.png" />
+    <Content Include="Images\Icons\transport.ff.png" />
+    <Content Include="Images\Icons\transport.pause.png" />
+    <Content Include="Images\Icons\transport.play.png" />
+    <Content Include="Images\Icons\transport.rew.png" />
+    <Content Include="Images\Icons\upload.png" />
+    <Content Include="Images\icon_splash.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bin\Debug\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="AppBarUtils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MyLocalPharmacy_21Aug9.15pm\MyLocalPharmacy\MyLocalPharmacy\Bin\Debug\AppBarUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MyLocalPharmacy_21Aug9.15pm\MyLocalPharmacy\MyLocalPharmacy\Bin\Debug\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="WPUtils">
+      <HintPath>C:\Users\ABHIJITH\Documents\Visual Studio 2012\Projects\DLL\WPUtils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

@@ -1,0 +1,191 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:abu="clr-namespace:AppBarUtils;assembly=AppBarUtils"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:Primitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone"
+    x:Class="MyLocalPharmacy.View.HomePanorama"
+    mc:Ignorable="d"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+    
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="StateItemTemplate">
+        	<StackPanel VerticalAlignment="Top">
+        		<TextBlock FontWeight="Bold" FontSize="25"  Text="{Binding Title}" />
+        		<!--<TextBlock Text="{Binding Capital}" />-->
+        	</StackPanel>
+        </DataTemplate>
+        <phone:JumpListItemBackgroundConverter x:Key="BackgroundConverter"/>
+        <phone:JumpListItemForegroundConverter x:Key="ForegroundConverter"/>
+        <Style x:Key="StateJumpListStyle" TargetType="phone:LongListSelector">
+        	<Setter Property="GridCellSize"  Value="113,113"/>
+        	<Setter Property="LayoutMode" Value="Grid" />
+        	<Setter Property="ItemTemplate">
+        		<Setter.Value>
+        			<DataTemplate>
+        				<Border Background="{Binding Converter={StaticResource BackgroundConverter}}" Width="113" Height="113" Margin="6" >
+        					<TextBlock Foreground="{Binding Converter={StaticResource ForegroundConverter}}" Text="{Binding Key}" FontFamily="{StaticResource PhoneFontFamilySemiBold}" FontSize="48" Padding="6" VerticalAlignment="Center"/>
+        				</Border>
+        			</DataTemplate>
+        		</Setter.Value>
+        	</Setter>
+        </Style>
+        <DataTemplate x:Key="StateGroupHeaderTemplate">
+        	<Border Background="Transparent" Padding="5">
+        		<Border Background="{StaticResource PhoneAccentBrush}" BorderBrush="{StaticResource PhoneAccentBrush}" BorderThickness="2" Width="62" 
+        			Height="62" Margin="0,0,18,0" HorizontalAlignment="Left">
+        			<TextBlock Text="{Binding Key}" Foreground="{StaticResource PhoneForegroundBrush}" FontSize="48" Padding="6" 
+        				FontFamily="{StaticResource PhoneFontFamilySemiLight}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        		</Border>
+        	</Border>
+        </DataTemplate>
+        
+    	
+    </phone:PhoneApplicationPage.Resources>
+    
+    
+	<phone:PhoneApplicationPage.FontFamily>
+		<StaticResource ResourceKey="PhoneFontFamilyNormal"/>
+	</phone:PhoneApplicationPage.FontFamily>
+	<phone:PhoneApplicationPage.FontSize>
+		<StaticResource ResourceKey="PhoneFontSizeNormal"/>
+	</phone:PhoneApplicationPage.FontSize>
+	<phone:PhoneApplicationPage.Foreground>
+		<StaticResource ResourceKey="PhoneForegroundBrush"/>
+	</phone:PhoneApplicationPage.Foreground>
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+    
+    <!--LayoutRoot contains the root grid where all other page content is placed-->
+	<Grid x:Name="LayoutRoot" >
+        <phone:Panorama x:Name="panoramaHeader"  >
+            <phone:Panorama.Background>
+				<ImageBrush ImageSource="/Images/bg_panorama.png"/>
+			</phone:Panorama.Background>
+			<phone:Panorama.Title>
+                <Grid Background="{Binding PrimaryColour}" Opacity=".8" Margin="-12,0,0,0">
+					<Grid.RowDefinitions>                      
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+					</Grid.RowDefinitions>
+                    <TextBlock Foreground="{Binding FontColor}" Text="MGS BRAND" FontSize="25" Grid.Row="0" Margin="21,35,0,0"/>
+					<TextBlock Foreground="{Binding FontColor}" FontSize="90" Grid.Row="1" Margin="15,-30,0,0" Text="mgs pharmacy                                " />
+                    <StackPanel Margin="0,0,0,0" Height="5" Grid.Row="2" VerticalAlignment="Top" Background="{Binding SecondaryColour}" ></StackPanel>
+				</Grid>
+                
+			</phone:Panorama.Title>
+
+			<i:Interaction.Triggers>
+				<abu:SelectedPanoItemChangedTrigger>
+					<abu:SwitchAppBarAction>
+                        <abu:AppBar Id="0" Mode="Minimized" BackgroundColor="{Binding PrimaryColour}" Opacity=".8" ForegroundColor="Black" >
+							<abu:AppBar.MenuItems>
+								<abu:AppBarMenuItem Text="settings" Command="{Binding SampleCommand}"/>
+							</abu:AppBar.MenuItems>
+                            
+						</abu:AppBar>
+                        <abu:AppBar Id="1" Mode="Minimized" BackgroundColor="{Binding PrimaryColour}" Opacity=".8" ForegroundColor="Black">
+							<abu:AppBar.MenuItems>
+								<abu:AppBarMenuItem Text="settings" Command="{Binding SampleCommand}"/>
+							</abu:AppBar.MenuItems>                                            
+						</abu:AppBar>
+
+                        <abu:AppBar Id="2" BackgroundColor="{Binding PrimaryColour}" Opacity=".8" ForegroundColor="Black">
+							<abu:AppBar.MenuItems >                                
+								<abu:AppBarMenuItem Text="settings" Command="{Binding SampleCommand}"/>
+							</abu:AppBar.MenuItems>
+							<abu:AppBarButton IconUri="/Images/Icons/add.png" Text="add" Command="{Binding SampleCommand}"/>
+							<abu:AppBarButton IconUri="/Images/Icons/refresh.png" Text="refresh" Command="{Binding SampleCommand}"/>
+						</abu:AppBar>
+
+                        <abu:AppBar Id="3" BackgroundColor="{Binding PrimaryColour}" Opacity=".8" ForegroundColor="Black">
+							<abu:AppBar.MenuItems >
+								<abu:AppBarMenuItem Text="settings" Command="{Binding SampleCommand}"/>
+							</abu:AppBar.MenuItems>
+							<abu:AppBarButton IconUri="/Images/Icons/add.png" Text="add" Command="{Binding SampleCommand}"/>                            
+						</abu:AppBar>
+
+                        <abu:AppBar Id="4" BackgroundColor="{Binding PrimaryColour}" Opacity=".8" ForegroundColor="Black">
+							<abu:AppBar.MenuItems>
+								<abu:AppBarMenuItem Text="settings" Command="{Binding SampleCommand}"/>
+							</abu:AppBar.MenuItems>
+							<abu:AppBarButton IconUri="/Images/Icons/feature.search.png" Text="refresh" Command="{Binding SampleCommand}"/>
+						</abu:AppBar>
+
+					</abu:SwitchAppBarAction>
+				</abu:SelectedPanoItemChangedTrigger>
+			</i:Interaction.Triggers>
+
+			<!--Panorama item one-->
+			<phone:PanoramaItem>
+				<phone:PanoramaItem.Header>
+					<TextBlock Foreground="Black" Text="pharmacy details" FontSize="52" Margin="-8,0,0,0"/>
+				</phone:PanoramaItem.Header>
+				<Grid Background="Transparent"/>
+			</phone:PanoramaItem>
+
+			<!--Panorama item two-->
+			<phone:PanoramaItem>
+				<phone:PanoramaItem.Header>
+					<TextBlock Foreground="Black" Text="local health services" FontSize="52" Margin="-8,0,0,0"/>
+				</phone:PanoramaItem.Header>
+				<Grid/>
+			</phone:PanoramaItem>
+
+			<!--Panorama item three-->
+			<phone:PanoramaItem>
+				<phone:PanoramaItem.Header>
+					<TextBlock Foreground="Black" Text="order repeat" FontSize="52" Margin="-8,0,0,0"/>
+				</phone:PanoramaItem.Header>
+				<Grid/>
+			</phone:PanoramaItem>
+
+			<!--Panorama item four-->
+			<phone:PanoramaItem>
+				<phone:PanoramaItem.Header>
+					<TextBlock Foreground="Black" Text="pills reminder" FontSize="52" Margin="-8,0,0,0"/>
+				</phone:PanoramaItem.Header>
+				<Grid/>
+                
+			</phone:PanoramaItem>
+
+			<!--Panorama item five-->
+			<phone:PanoramaItem>
+				<phone:PanoramaItem.Header>
+                    <TextBlock Foreground="{Binding FontColor}" Text="condition leaflets" FontSize="52" Margin="-8,0,0,0"/>
+				</phone:PanoramaItem.Header>
+				<Grid>
+					<phone:LongListSelector x:Name="longListSelectorState" Background="Transparent" Foreground="Black" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="420" RenderTransformOrigin="-0.893,0.033" ItemTemplate="{StaticResource StateItemTemplate}" JumpListStyle="{StaticResource StateJumpListStyle}" LayoutMode="List" IsGroupingEnabled="true" HideEmptyGroups ="true" GroupHeaderTemplate="{StaticResource StateGroupHeaderTemplate}"/>
+				</Grid>
+			</phone:PanoramaItem>
+
+		</phone:Panorama>
+	</Grid>
+
+</phone:PhoneApplicationPage>

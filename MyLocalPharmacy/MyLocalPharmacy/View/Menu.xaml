@@ -1,0 +1,73 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="MyLocalPharmacy.View.Menu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <phone:Pivot Title="MY APPLICATION">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="Pharmacy Details">
+
+                <Grid>
+                    <Button Name="btnSamplePharmacyDetails" Content="Sample Pharmacy Details(Button)" Click="btnSamplePharmacyDetails_Click"></Button>
+                </Grid>
+
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="Order repeat">
+                <Grid>
+                    <Button Name="btnSampleOrderRepeat" Content="Sample Order Repeat(Button)" Click="btnSampleOrderRepeat_Click"></Button>
+                </Grid>
+               
+            </phone:PivotItem>
+
+            <!--Pivot item three.-->
+            <phone:PivotItem Header="Pills reminder">
+
+                <Grid>
+                    <Button Name="btnSamplePillsReminder" Content="Sample Pills Reminder(Button)" Click="btnSamplePillsReminder_Click"></Button>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item four.-->
+            <phone:PivotItem Header="Condition Leaflets">
+                <Grid>
+                    <Button Name="btnSampleConditionLeaflet" Content="Sample Condition Leaflet(Button)" Click="btnSampleConditionLeaflet_Click"></Button>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item five.-->
+            <phone:PivotItem Header="Local Health Service">
+                <Grid>
+                    <Button Name="btnLocalHealthService" Content="Local Health Service(Button)" Click="btnLocalHealthService_Click"></Button>
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Default" Opacity="1.0" >
+           
+            <shell:ApplicationBarIconButton IconUri="/Images/call.png" Text="Sample Call Controll" Click="ApplicationBarIconCall_Click" />
+            <shell:ApplicationBarIconButton IconUri="/Images/settings.png" Text="settings"  />
+
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Open Today : 09:00- 17:00"  />
+            </shell:ApplicationBar.MenuItems>
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>
